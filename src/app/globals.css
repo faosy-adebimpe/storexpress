@@ -36,6 +36,14 @@
         @apply hover:opacity-50 active:scale-95;
     }
 
+    .hr {
+        @apply w-full text-gray-300;
+    }
+
+    .cart-icon {
+        @apply size-[40px] flex justify-center items-center rounded-full transition-colors hover:bg-gray-200;
+    }
+
     /* test */
     .test {
         @apply text-blue-300 text-base bg-blue-700;

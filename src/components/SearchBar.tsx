@@ -33,7 +33,8 @@ const SearchBar = () => {
                     Popular Search Terms
                 </h5>
 
-                <ul className="flex gap-5 flex-wrap items-center mt-3">
+                {/* <ul className="flex gap-5 flex-wrap items-center mt-3"> */}
+                <ul className="flex gap-3 flex-wrap items-center mt-3">
                     {[
                         'groceries',
                         'furniture',

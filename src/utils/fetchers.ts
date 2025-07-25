@@ -28,3 +28,10 @@ export const fetchCategories = async (): Promise<Category[]> => {
     const response = await productsApi.get('/products/categories');
     return response.data;
 };
+
+export const fetchCartProducts = async (ids: number[]): Promise<Product[]> => {
+    const responses = await Promise.all(
+        ids.map(async (id) => (await productsApi.get(`/products/${id}`)).data)
+    );
+    return responses;
+};

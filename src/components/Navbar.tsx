@@ -15,12 +15,15 @@ import SearchBar from './SearchBar';
 import logo from '@/assets/logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
+import LoadCart from './LoadCart';
 
 const Navbar = () => {
-    const { openSidebar, openSearch } = useModalStore();
+    const { openSidebar, openSearch, sidebarOpened, closeSidebar } =
+        useModalStore();
     return (
         <nav className="overflow-x-hidden" id="nav">
-            <ModalCover />
+            <LoadCart />
+            <ModalCover opened={sidebarOpened} close={closeSidebar} />
             <Sidebar />
             <SearchBar />
             <div className="container flex justify-between items-center">
@@ -44,9 +47,9 @@ const Navbar = () => {
                     >
                         <UserRoundIcon className="nav-icon" />
                     </Link>
-                    <div className="nav-icon-wrapper">
+                    <Link href="/cart" className="nav-icon-wrapper">
                         <ShoppingBagIcon className="nav-icon" />
-                    </div>
+                    </Link>
                     <div
                         className="nav-icon-wrapper lg:hidden"
                         onClick={openSidebar}

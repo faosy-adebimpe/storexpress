@@ -5,7 +5,7 @@ export const useBookmarkStore = create<BookmarkStore>(() => ({
     addBookmark: (id) => {
         const bookmarksString = localStorage.getItem('bookmarks');
 
-        let bookmarks: string[];
+        let bookmarks: number[];
         if (bookmarksString) {
             bookmarks = JSON.parse(bookmarksString);
         } else {
@@ -31,7 +31,7 @@ export const useBookmarkStore = create<BookmarkStore>(() => ({
         const bookmarksString = localStorage.getItem('bookmarks');
         if (!bookmarksString) return false;
 
-        const bookmarks = JSON.parse(bookmarksString) as string[];
+        const bookmarks = JSON.parse(bookmarksString) as number[];
 
         if (bookmarks.includes(id)) {
             return true;

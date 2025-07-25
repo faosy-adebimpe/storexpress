@@ -70,16 +70,47 @@ export interface ModalStore {
     searchOpened: boolean;
     openSearch: () => void;
     closeSearch: () => void;
+
+    // cart notification
+    cartNotificationOpened: boolean;
+    openCartNotification: () => void;
+    closeCartNotification: () => void;
 }
 
 export interface BookmarkStore {
-    addBookmark: (id: string) => boolean;
-    isBookmarked: (id: string) => boolean;
+    addBookmark: (id: number) => boolean;
+    isBookmarked: (id: number) => boolean;
 }
 
 export interface ProductsStore {
     url: string | undefined;
     setUrl: (url: string) => void;
+}
+
+export interface CartItem {
+    id: number;
+    price: number;
+    amount: number;
+}
+
+export interface CartStore {
+    cart: CartItem[];
+    fetchCart: () => void;
+    addItemToCart: (id: number, price: number, amount?: number) => void;
+    updateCartItem: (
+        id: number,
+        action: 'add' | 'remove',
+        amount?: number
+    ) => void;
+    removeItemFromCart: (id: number) => void;
+    update: (cart: CartItem[]) => void;
+    getTotal: () => number;
+
+    getCartItemIds: () => number[];
+    getItemCount: (id: number) => number | undefined;
+
+    getItemPrice: (id: number) => number | undefined;
+    getTotalPrice: () => number;
 }
 
 export interface AccordionType {

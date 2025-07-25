@@ -1,7 +1,7 @@
 import { ModalStore } from '@/types';
 import { create } from 'zustand';
 
-export const useModalStore = create<ModalStore>((set) => ({
+export const useModalStore = create<ModalStore>((set, get) => ({
     // sidebar
     sidebarOpened: false,
     openSidebar: () => {
@@ -24,5 +24,22 @@ export const useModalStore = create<ModalStore>((set) => ({
     },
     closeSearch: () => {
         set({ searchOpened: false });
+    },
+
+    // cart notification
+    cartNotificationOpened: false,
+    openCartNotification: () => {
+        const { cartNotificationOpened } = get();
+        if (cartNotificationOpened) {
+            return;
+        }
+        set({ cartNotificationOpened: true });
+    },
+    closeCartNotification: () => {
+        const { cartNotificationOpened } = get();
+        if (!cartNotificationOpened) {
+            return;
+        }
+        set({ cartNotificationOpened: false });
     },
 }));

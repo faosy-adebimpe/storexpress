@@ -1,7 +1,10 @@
 'use client';
 
+import AddedToCartNotification from '@/components/AddedToCartNotification';
 import Loading from '@/components/Loading';
 import { useBookmarkStore } from '@/store/bookmarkStore';
+import { useCartStore } from '@/store/cartStore';
+import { useModalStore } from '@/store/modalStore';
 import { fetchProduct } from '@/utils/fetchers';
 import ucFirst from '@/utils/uc-first';
 import { useQuery } from '@tanstack/react-query';
@@ -19,20 +22,28 @@ const ProductPage = () => {
         enabled: !!id,
     });
 
+    // modal store
+    const { openCartNotification } = useModalStore();
+
+    // cart store
+    const { addItemToCart } = useCartStore();
+
     const { addBookmark, isBookmarked } = useBookmarkStore();
     const [bookmarked, setBookmarked] = useState<boolean | null>(null);
 
     useEffect(() => {
-        setBookmarked(isBookmarked(String(id)));
+        setBookmarked(isBookmarked(Number(id)));
     }, [id, isBookmarked]);
 
     const add = () => {
-        const response = addBookmark(String(data?.id));
+        if (!data || !data.id) {
+            return;
+        }
+        const response = addBookmark(data?.id);
         setBookmarked(response);
     };
 
     if (isLoading) {
-        // return <div className=""><Loading /></div>;
         return <Loading />;
     }
 
@@ -40,12 +51,19 @@ const ProductPage = () => {
         return <div className="">Error: {error.message}</div>;
     }
 
-    // if (!data) {
-    //     return <div className="">An unknown error occured</div>;
-    // }
+    const addToBag = () => {
+        openCartNotification();
+
+        if (!data || !data.id) {
+            return;
+        }
+        addItemToCart(data?.id, data?.price);
+    };
 
     return (
         <div>
+            {/* notification modal */}
+            {data && <AddedToCartNotification {...data} />}
             {/* mobile */}
             <div className="lg:hidden">
                 <div className="flex flex-col items-start">
@@ -75,7 +93,10 @@ const ProductPage = () => {
                 )}
 
                 <div className="flex gap-3 flex-col mt-10">
-                    <button className="font-semibold text-white bg-black py-5 rounded-full btn">
+                    <button
+                        className="font-semibold text-white bg-black py-5 rounded-full btn"
+                        onClick={addToBag}
+                    >
                         Add to Bag
                     </button>
                     <button
@@ -148,7 +169,10 @@ const ProductPage = () => {
                     </div>
 
                     <div className="flex gap-3 flex-col mt-10">
-                        <button className="font-semibold text-white bg-black py-5 rounded-full btn">
+                        <button
+                            className="font-semibold text-white bg-black py-5 rounded-full btn"
+                            onClick={addToBag}
+                        >
                             Add to Bag
                         </button>
                         <button

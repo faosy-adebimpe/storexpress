@@ -5,6 +5,10 @@ add fonts
 
 tue, wed
 
+fetch from the layout or navbar to prefetch the cart items on load
+view bag with the number
+
+remove add cart notification after 5 seconds
 
 
 this design is from nike
