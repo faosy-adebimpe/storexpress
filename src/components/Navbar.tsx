@@ -38,9 +38,12 @@ const Navbar = () => {
                     <div className="nav-icon-wrapper" onClick={openSearch}>
                         <SearchIcon className="nav-icon" />
                     </div>
-                    <div className="nav-icon-wrapper lg:hidden">
+                    <Link
+                        href="/account"
+                        className="nav-icon-wrapper lg:hidden"
+                    >
                         <UserRoundIcon className="nav-icon" />
-                    </div>
+                    </Link>
                     <div className="nav-icon-wrapper">
                         <ShoppingBagIcon className="nav-icon" />
                     </div>
