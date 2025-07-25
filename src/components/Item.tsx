@@ -30,8 +30,10 @@ const Item = ({
                     className="object-cover object-center"
                 />
             </div>
-            <div className="flex flex-col items-start">
-                <p className="font-semibold truncate">{title}</p>
+            <div className="flex flex-col items-start w-full">
+                <p className="font-semibold truncate max-w-full text-wrap">
+                    {title}
+                </p>
                 <p className="text-page-gray">{ucFirst(category)}</p>
                 <p className="text-pgae-gray">{brand}</p>
             </div>

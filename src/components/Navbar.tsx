@@ -18,7 +18,7 @@ import Image from 'next/image';
 const Navbar = () => {
     const { openSidebar, openSearch } = useModalStore();
     return (
-        <nav className="" id="nav">
+        <nav className="overflow-x-hidden" id="nav">
             <ModalCover />
             <Sidebar />
             <SearchBar />
