@@ -14,6 +14,7 @@ import ModalCover from './ModalCover';
 import SearchBar from './SearchBar';
 import logo from '@/assets/logo.png';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Navbar = () => {
     const { openSidebar, openSearch } = useModalStore();
@@ -24,7 +25,7 @@ const Navbar = () => {
             <SearchBar />
             <div className="container flex justify-between items-center">
                 {/* <h2 className="">Logo</h2> */}
-                <div className="relative size-16 lg:size-24">
+                <Link href="/" className="relative size-16 lg:size-24">
                     <Image
                         src={logo}
                         fill
@@ -32,7 +33,7 @@ const Navbar = () => {
                         alt="logo"
                         className="object-contain object-center"
                     />
-                </div>
+                </Link>
                 <div className="flex items-center">
                     <div className="nav-icon-wrapper" onClick={openSearch}>
                         <SearchIcon className="nav-icon" />
