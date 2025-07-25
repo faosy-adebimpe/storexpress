@@ -1,0 +1,5 @@
+pagination
+add spinners or loaders
+
+
+tue, wed

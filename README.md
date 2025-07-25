@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StoreXpress
+
+StoreXpress is a modern e-commerce web application built with Next.js 15, TypeScript, and React. It features dynamic product pages, SEO optimization, fast client-side navigation, and a clean, responsive UI.
+
+## Features
+
+-   Product listing with categories
+-   Single product pages with dynamic meta data for SEO
+-   Bookmarking products
+-   Modal sidebar and search
+-   Pagination
+-   Spinners/loaders for async actions
+-   Responsive design
+
+## Tech Stack
+
+-   Next.js 15
+-   React
+-   TypeScript
+-   Tailwind CSS
+-   React Query
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+-   Node.js (v18 or higher recommended)
+-   npm or yarn
+
+### Installation
+
+1. Clone the repository:
+    ```sh
+    git clone <your-repo-url>
+    cd storexpress
+    ```
+2. Install dependencies:
+    ```sh
+    npm install
+    # or
+    yarn install
+    ```
+3. Run the development server:
+    ```sh
+    npm run dev
+    # or
+    yarn dev
+    ```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+```
+eslint.config.mjs
+next-env.d.ts
+next.config.ts
+note.txt
+package.json
+postcss.config.mjs
+README.md
+tsconfig.json
+public/
+src/
+  types.ts
+  app/
+    layout.tsx
+    page.tsx
+    products/[id]/page.tsx
+    providers/QueryProvider.tsx
+  components/
+  data/
+  lib/
+  store/
+  utils/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Customization
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+-   Update SEO meta tags in `src/app/products/[id]/page.tsx` for dynamic product SEO.
+-   Modify global styles in `src/app/globals.css`.
+-   Add new components in `src/components/`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<!-- ## Contributing
 
-## Learn More
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT -->

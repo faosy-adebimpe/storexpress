@@ -1,26 +1,47 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import 'tailwind-scrollbar-hide/v4';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --foreground: #121212;
+    --page-gray: #707073;
+}
+@theme {
+    --color-foreground: var(--forground);
+    --color-page-gray: var(--page-gray);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+    button {
+        @apply cursor-pointer transition;
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@layer components {
+    .nav-icon-wrapper {
+        @apply size-10 rounded-full transition hover:bg-gray-100 flex justify-center items-center cursor-pointer;
+    }
+    .nav-icon {
+        @apply size-5;
+    }
+
+    /* justify and align center "cc": center center */
+    .cc {
+        @apply flex justify-center items-center;
+    }
+
+    .btn {
+        @apply hover:opacity-50 active:scale-95;
+    }
+
+    /* test */
+    .test {
+        @apply text-blue-300 text-base bg-blue-700;
+    }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility container {
+    @apply p-3 mx-auto max-w-[1440px];
 }
