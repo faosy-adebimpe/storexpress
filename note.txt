@@ -1,5 +1,6 @@
 pagination
 add spinners or loaders
+add fonts
 
 
 tue, wed
