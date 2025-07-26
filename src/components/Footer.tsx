@@ -3,8 +3,11 @@
 import { GlobeIcon } from 'lucide-react';
 import Accordion from './Accordion';
 import footerData from '@/data/footer.data';
+import { usePathname } from 'next/navigation';
 
 const Footer = () => {
+    const pathname = usePathname();
+    const addSpace = pathname === '/cart';
     return (
         <footer className="mt-20 p-3" id="footer">
             <hr className="text-gray-300 w-full" />
@@ -48,6 +51,8 @@ const Footer = () => {
                     <p className="">StoreXpress Privacy Policy</p>
                 </div>
             </div>
+
+            {addSpace && <div className="w-full h-36"></div>}
         </footer>
     );
 };

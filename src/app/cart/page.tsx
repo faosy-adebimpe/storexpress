@@ -3,6 +3,7 @@
 import { useCartStore } from '@/store/cartStore';
 import Cart from './Cart';
 import Summary from './Summary';
+import Link from 'next/link';
 
 const CartPage = () => {
     const { getTotal, getTotalPrice } = useCartStore();
@@ -29,6 +30,39 @@ const CartPage = () => {
                 )}
 
                 <Cart />
+
+                <div className="fixed w-full left-0 bottom-0 bg-white p-3 flex gap-1 flex-col h-36 border-t border-gray-200 lg:hidden">
+                    <p className="">
+                        You qualify for{' '}
+                        <span className="font-semibold">Free Shipping</span> as
+                        a Member!{' '}
+                        <Link
+                            className="underline underline-offset-2 font-semibold text-gray-500"
+                            href="/account"
+                        >
+                            Join us
+                        </Link>{' '}
+                        or{' '}
+                        <Link
+                            className="underline underline-offset-2 font-semibold text-gray-500"
+                            href="/account"
+                        >
+                            Sign-in
+                        </Link>
+                    </p>
+
+                    <div className="flex gap-2 items-center">
+                        <div className="h-2 rounded-full w-full flex-auto bg-green-800"></div>
+                        <p className="font-semibold">$50</p>
+                    </div>
+
+                    <Link
+                        href="/acount"
+                        className="cc mt-1 w-full px-1 py-5 rounded-full bg-black text-white btn"
+                    >
+                        <span className="font-semibold">Go to Checkout</span>
+                    </Link>
+                </div>
             </div>
             <Summary totalPrice={totalPrice} />
         </div>

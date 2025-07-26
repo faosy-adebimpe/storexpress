@@ -23,7 +23,7 @@ const ProductPage = () => {
     });
 
     // modal store
-    const { openCartNotification } = useModalStore();
+    const { openCartNotification, closeCartNotification } = useModalStore();
 
     // cart store
     const { addItemToCart } = useCartStore();
@@ -52,7 +52,14 @@ const ProductPage = () => {
     }
 
     const addToBag = () => {
+        // open cart notification
         openCartNotification();
+
+        // close after 5 seconds
+        setTimeout(() => {
+            // todo: check the store if it's opened before you close it
+            closeCartNotification();
+        }, 5000);
 
         if (!data || !data.id) {
             return;

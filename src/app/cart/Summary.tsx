@@ -84,14 +84,14 @@ const Summary = ({ totalPrice }: { totalPrice: number }) => {
                     <span className="font-semibold">Free Shipping</span> as a
                     member!{' '}
                     <Link
-                        href="#"
+                        href="/account"
                         className="underline underline-offset-2 font-semibold text-gray-500"
                     >
                         Join us
                     </Link>{' '}
                     or{' '}
                     <Link
-                        href="#"
+                        href="/account"
                         className="underline underline-offset-2 font-semibold text-gray-500"
                     >
                         Sign-in
@@ -105,7 +105,7 @@ const Summary = ({ totalPrice }: { totalPrice: number }) => {
 
                 <li className="w-full mt-5 flex">
                     <Link
-                        href="#"
+                        href="/account"
                         className="w-full py-5 px-1 font-bold text-white bg-black rounded-full btn cc"
                     >
                         Checkout

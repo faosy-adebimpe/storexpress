@@ -33,7 +33,8 @@
     }
 
     .btn {
-        @apply hover:opacity-50 active:scale-95;
+        /* @apply hover:opacity-50 active:scale-95; */
+        @apply transition hover:opacity-80 active:scale-95;
     }
 
     .hr {

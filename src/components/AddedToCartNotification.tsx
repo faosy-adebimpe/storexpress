@@ -22,7 +22,7 @@ const AddedToCartNotification = ({
     return (
         <div
             className={classNames(
-                'w-screen h-screen fixed z-20 top-0 left-0 flex justify-center items-end',
+                'w-screen h-screen fixed z-20 top-0 left-0 flex justify-center items-end lg:justify-end lg:items-start',
                 { hidden: !cartNotificationOpened }
             )}
         >
@@ -32,7 +32,7 @@ const AddedToCartNotification = ({
             ></div>
             <div
                 className={classNames(
-                    'flex gap-5 flex-col relative border border-blue-100 p-5 rounded-[15px_15px_0_0] bg-white w-md transition-transform duration-300',
+                    'flex gap-5 flex-col relative border border-blue-100 p-5 rounded-[15px_15px_0px_0px] lg:rounded-[0px_0px_15px_15px] bg-white w-md transition-transform duration-300',
                     { 'translate-y-full': !cartNotificationOpened }
                 )}
             >
