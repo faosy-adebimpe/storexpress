@@ -1,5 +1,6 @@
 import { CartItem, CartStore } from '@/types';
 import formatLocalStorage from '@/utils/format-local-storage';
+import round from '@/utils/round';
 import { create } from 'zustand';
 
 export const useCartStore = create<CartStore>((set, get) => ({
@@ -111,7 +112,7 @@ export const useCartStore = create<CartStore>((set, get) => ({
         }
 
         // todo: round to 2 decimals
-        return cartItem.price * cartItem.amount;
+        return round(cartItem.price * cartItem.amount);
     },
 
     getTotalPrice: () => {
@@ -122,6 +123,6 @@ export const useCartStore = create<CartStore>((set, get) => ({
         );
 
         // todo: round to 2 decimals
-        return totalPrice;
+        return round(totalPrice);
     },
 }));

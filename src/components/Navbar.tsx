@@ -16,10 +16,13 @@ import logo from '@/assets/logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import LoadCart from './LoadCart';
+import { useCartStore } from '@/store/cartStore';
 
 const Navbar = () => {
     const { openSidebar, openSearch, sidebarOpened, closeSidebar } =
         useModalStore();
+    const { getTotal } = useCartStore();
+    const total = getTotal();
     return (
         <nav className="overflow-x-hidden" id="nav">
             <LoadCart />
@@ -47,8 +50,13 @@ const Navbar = () => {
                     >
                         <UserRoundIcon className="nav-icon" />
                     </Link>
-                    <Link href="/cart" className="nav-icon-wrapper">
+                    <Link href="/cart" className="nav-icon-wrapper relative">
                         <ShoppingBagIcon className="nav-icon" />
+                        <div className="size-6 rounded-full text-white bg-black cc absolute -right-[1px] -top-[1px] border-2 border-white">
+                            <span className="text-[10px] font-semibold">
+                                {total > 9 ? '9+' : total}
+                            </span>
+                        </div>
                     </Link>
                     <div
                         className="nav-icon-wrapper lg:hidden"
