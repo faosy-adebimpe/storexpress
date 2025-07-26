@@ -15,7 +15,7 @@ const ModalCover = ({
     return (
         <div
             className={classNames(
-                'z-10 fixed w-screen h-screen bg-black/20 lg:hidden',
+                'z-20 fixed w-screen h-screen bg-black/20 lg:hidden',
                 {
                     hidden: !opened,
                 }
