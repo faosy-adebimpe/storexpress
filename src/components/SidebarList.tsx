@@ -33,7 +33,7 @@ const SidebarList = () => {
                     href="/account"
                     className="w-full py-4 px-2 rounded-full text-black font-semibold btn border border-gray-300 cc"
                 >
-                    <span>Sign In</span>
+                    <span className="text-sm">Sign In</span>
                 </Link>
             </li>
             <li className="w-full cc">
@@ -41,7 +41,7 @@ const SidebarList = () => {
                     href="/account"
                     className="w-full py-4 px-2 rounded-full text-white bg-black font-semibold btn cc"
                 >
-                    <span>Join Us</span>
+                    <span className="text-sm">Join Us</span>
                 </Link>
             </li>
         </ul>
