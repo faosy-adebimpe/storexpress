@@ -31,7 +31,7 @@ const CartPage = () => {
 
                 <Cart />
 
-                <div className="fixed w-full left-0 bottom-0 bg-white p-3 flex gap-1 flex-col h-36 border-t border-gray-200 lg:hidden">
+                <div className="fixed w-full left-0 bottom-0 bg-white p-3 flex gap-1 flex-col min-h-36 border-t border-gray-200 lg:hidden">
                     <p className="">
                         You qualify for{' '}
                         <span className="font-semibold">Free Shipping</span> as

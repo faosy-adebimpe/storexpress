@@ -7,7 +7,7 @@ import { useProductsStore } from '@/store/productsStore';
 import { fetchCategories, fetchDynaicProducts } from '@/utils/fetchers';
 import { useQuery } from '@tanstack/react-query';
 import classNames from 'classnames';
-import { ChevronDownIcon, FunnelIcon } from 'lucide-react';
+import { ChevronDownIcon, FunnelIcon, Settings2Icon } from 'lucide-react';
 
 export default function Home() {
     const { url, setUrl } = useProductsStore();
@@ -91,7 +91,8 @@ export default function Home() {
                     </p>
                     <button className="px-5 py-1 cc gap-1 border border-page-gray rounded-full font-semibold">
                         <span className="">Filter</span>
-                        <FunnelIcon className="size-4" />
+                        {/* <FunnelIcon className="size-4" /> */}
+                        <Settings2Icon className="size-4" />
                     </button>
                 </div>
 
