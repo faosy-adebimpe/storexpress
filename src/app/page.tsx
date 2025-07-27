@@ -123,10 +123,11 @@ export default function Home() {
                     {/* display categories */}
                     <div
                         className={classNames(
-                            'gap-10 overflow-hidden transition-all duration-200   sticky top-20 left-0 w-72 hidden lg:block mt-5 p-3 max-h-[calc(100vh-5rem)] overflow-y-auto ',
+                            'gap-10 overflow-hidden transition-all duration-200   sticky top-20 left-0 w-72 hidden lg:block mt-5 p-3 max-h-[calc(100vh-5rem)]',
                             {
-                                'max-w-screen': openCategoriesBar,
-                                'max-w-0': !openCategoriesBar,
+                                'max-w-screen overflow-y-auto':
+                                    openCategoriesBar,
+                                'max-w-0 overflow-hidden': !openCategoriesBar,
                             }
                         )}
                     >
