@@ -24,20 +24,20 @@ const CategoriesBar = ({
         return <p>Error: {categoriesError.message}</p>;
     }
     return (
-        <div className="sticky top-20 left-0 w-72 hidden lg:block mt-5 p-3 max-h-[calc(100vh-5rem)] overflow-y-auto">
-            <div className="w-full flex gap-3 flex-col items-start overflow-auto">
-                {categories?.map((category) => (
-                    <button
-                        key={category.slug}
-                        className="w-full flex justify-between items-center font-semibold text-lg transition hover:opacity-70"
-                        onClick={() => setUrl(category.slug)}
-                    >
-                        <span className="">{category.name}</span>
-                        <ChevronRightIcon className="size-6" />
-                    </button>
-                ))}
-            </div>
+        // <div className="sticky top-20 left-0 w-72 hidden lg:block mt-5 p-3 max-h-[calc(100vh-5rem)] overflow-y-auto">
+        <div className="w-full flex gap-3 flex-col items-start overflow-auto">
+            {categories?.map((category) => (
+                <button
+                    key={category.slug}
+                    className="w-full flex justify-between items-center font-semibold text-lg transition hover:opacity-70"
+                    onClick={() => setUrl(category.slug)}
+                >
+                    <span className="">{category.name}</span>
+                    <ChevronRightIcon className="size-6" />
+                </button>
+            ))}
         </div>
+        // </div>
     );
 };
 

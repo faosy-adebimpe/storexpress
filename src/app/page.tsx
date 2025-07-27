@@ -7,7 +7,8 @@ import { useProductsStore } from '@/store/productsStore';
 import { fetchCategories, fetchDynaicProducts } from '@/utils/fetchers';
 import { useQuery } from '@tanstack/react-query';
 import classNames from 'classnames';
-import { ChevronDownIcon, FunnelIcon, Settings2Icon } from 'lucide-react';
+import { Settings2Icon } from 'lucide-react';
+import { useState } from 'react';
 
 export default function Home() {
     const { url, setUrl } = useProductsStore();
@@ -29,14 +30,14 @@ export default function Home() {
         queryFn: fetchCategories,
     });
 
+    const [openCategories, setOpenCategories] = useState(true);
+    const [openCategoriesBar, setOpenCategoriesBar] = useState(true);
+
     return (
         <div>
             {/* <Hero /> */}
             <div className="">
                 <div
-                    // className={classNames(
-                    //     'w-full h-20 lg:p-3 lg:bg-white transition-all duration-500 flex justify-between items-center sticky top-0 z-10'
-                    // )}
                     className={classNames(
                         'w-full h-20 lg:p-3 bg-white transition-all duration-500 flex justify-between items-center sticky top-0 z-10'
                     )}
@@ -49,20 +50,32 @@ export default function Home() {
                     </h2>
 
                     <div className="hidden lg:flex items-center gap-5">
-                        <button className="px-5 py-1 cc gap-1 font-semibold">
-                            <span className="">Hide Filters</span>
-                            <FunnelIcon className="size-4" />
+                        <button
+                            className="px-5 py-1 cc gap-1 font-semibold"
+                            onClick={() =>
+                                setOpenCategoriesBar((prev) => !prev)
+                            }
+                        >
+                            <span className="">
+                                {openCategoriesBar
+                                    ? 'Hide Filters'
+                                    : 'Show Filters'}
+                            </span>
+                            <Settings2Icon className="size-4" />
                         </button>
-                        <div className="px-5 py-1 cc gap-1 font-semibold">
-                            <span className="">Sort By</span>
-                            <ChevronDownIcon />
-                        </div>
                     </div>
                 </div>
 
                 {/* categories */}
-                <div className="mt-9 lg:hidden">
-                    {/* {categoriesLoading && <p>Loading categories...</p>} */}
+                <div
+                    className={classNames(
+                        'lg:hidden overflow-hidden transition-all duration-200',
+                        {
+                            'mt-9 max-h-screen': openCategories,
+                            'max-h-0': !openCategories,
+                        }
+                    )}
+                >
                     {categoriesLoading && <Loading />}
                     {categoriesError && (
                         <p>
@@ -87,11 +100,13 @@ export default function Home() {
                 {/* results */}
                 <div className="flex justify-between items-center lg:hidden">
                     <p className="text-page-gray font-semibold">
-                        {products?.total} Results
+                        {products?.total && `${products.total} Results`}
                     </p>
-                    <button className="px-5 py-1 cc gap-1 border border-page-gray rounded-full font-semibold">
+                    <button
+                        className="px-5 py-1 cc gap-1 border border-page-gray rounded-full font-semibold"
+                        onClick={() => setOpenCategories((prev) => !prev)}
+                    >
                         <span className="">Filter</span>
-                        {/* <FunnelIcon className="size-4" /> */}
                         <Settings2Icon className="size-4" />
                     </button>
                 </div>
@@ -106,14 +121,23 @@ export default function Home() {
                 {/* display products & categories */}
                 <div className={classNames('flex gap-10')}>
                     {/* display categories */}
-                    <CategoriesBar
-                        categoriesLoading={categoriesLoading}
-                        categories={categories}
-                        categoriesError={categoriesError}
-                    />
+                    <div
+                        className={classNames(
+                            'gap-10 overflow-hidden transition-all duration-200   sticky top-20 left-0 w-72 hidden lg:block mt-5 p-3 max-h-[calc(100vh-5rem)] overflow-y-auto ',
+                            {
+                                'max-w-screen': openCategoriesBar,
+                                'max-w-0': !openCategoriesBar,
+                            }
+                        )}
+                    >
+                        <CategoriesBar
+                            categoriesLoading={categoriesLoading}
+                            categories={categories}
+                            categoriesError={categoriesError}
+                        />
+                    </div>
 
                     {/* display products */}
-                    {/* <div className="w-full mt-5 lg:mt-0 grid gap-x-2 lg:gap-x-4 gap-y-[18px] grid-cols-2 lg:grid-cols-3"> */}
                     <div className="w-full mt-5 lg:mt-0 grid gap-x-2 lg:gap-x-4 gap-y-9 grid-cols-2 lg:grid-cols-3 lg:gap-y-12">
                         {products?.products.slice(0, 20).map((item) => (
                             <Item key={item.id} {...item} />
