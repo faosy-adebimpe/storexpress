@@ -1,50 +1,14 @@
 'use client';
 
 import { useModalStore } from '@/store/modalStore';
-import { ChevronRightIcon, XIcon } from 'lucide-react';
+import { XIcon } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const SidebarList = () => {
     const { closeSidebar } = useModalStore();
     return (
-        // <ul className="text-xl flex flex-col gap-3">
-        //     <li className="absolute top-5 right-5">
-        //         <button
-        //             className="size-10 rounded-full transitoin hover:bg-gray-100 cc"
-        //             onClick={closeSidebar}
-        //         >
-        //             <XIcon className="size-6" />
-        //         </button>
-        //     </li>
-        //     <li>
-        //         <Link
-        //             href="#"
-        //             className="w-full flex justify-between items-center"
-        //         >
-        //             <p className="font-semibold">New</p>
-        //             <ChevronRightIcon className="size-5" />
-        //         </Link>
-        //     </li>
-        //     <li>
-        //         <Link
-        //             href="#"
-        //             className="w-full flex justify-between items-center"
-        //         >
-        //             <p className="font-semibold">Men</p>
-        //             <ChevronRightIcon className="size-5" />
-        //         </Link>
-        //     </li>
-        //     <li>
-        //         <Link
-        //             href="#"
-        //             className="w-full flex justify-between items-center"
-        //         >
-        //             <p className="font-semibold">Women</p>
-        //             <ChevronRightIcon className="size-5" />
-        //         </Link>
-        //     </li>
-        // </ul>
-        <ul className="text-xl flex flex-col gap-3">
+        <ul className="text-xl flex flex-col gap-3 items-center">
             <li className="absolute top-5 right-5">
                 <button
                     className="size-10 rounded-full transitoin hover:bg-gray-100 cc"
@@ -52,6 +16,16 @@ const SidebarList = () => {
                 >
                     <XIcon className="size-6" />
                 </button>
+            </li>
+
+            <li className="size-20 relative mb-7">
+                <Image
+                    src="/logo.png"
+                    fill
+                    title="logo"
+                    alt="logo"
+                    className="object-center object-contain"
+                />
             </li>
 
             <li className="w-full cc">
