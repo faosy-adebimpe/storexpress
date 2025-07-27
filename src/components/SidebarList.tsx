@@ -7,6 +7,10 @@ import Link from 'next/link';
 
 const SidebarList = () => {
     const { closeSidebar } = useModalStore();
+
+    const close = () => {
+        closeSidebar();
+    };
     return (
         <ul className="text-xl flex flex-col gap-3 items-center">
             <li className="absolute top-5 right-5">
@@ -32,6 +36,7 @@ const SidebarList = () => {
                 <Link
                     href="/account"
                     className="w-full py-4 px-2 rounded-full text-black font-semibold btn border border-gray-300 cc"
+                    onClick={close}
                 >
                     <span className="text-sm">Sign In</span>
                 </Link>
@@ -40,6 +45,7 @@ const SidebarList = () => {
                 <Link
                     href="/account"
                     className="w-full py-4 px-2 rounded-full text-white bg-black font-semibold btn cc"
+                    onClick={close}
                 >
                     <span className="text-sm">Join Us</span>
                 </Link>
