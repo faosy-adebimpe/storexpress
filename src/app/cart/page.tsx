@@ -57,7 +57,7 @@ const CartPage = () => {
                     </div>
 
                     <Link
-                        href="/acount"
+                        href="/account"
                         className="cc mt-1 w-full px-1 py-5 rounded-full bg-black text-white btn"
                     >
                         <span className="font-semibold">Go to Checkout</span>
